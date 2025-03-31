@@ -20,8 +20,8 @@ public class allUIelements : MonoBehaviour
     void ChangedActiveScene(Scene current, Scene next)
     {
         //ui.transform.SetParent(GameObject.Find("Canvas").transform, ui);
-        Debug.Log(current.name);
-        Debug.Log(next.name);
+        //Debug.Log(current.name);
+        //Debug.Log(next.name);
         /*if (SceneManager.GetActiveScene().name == "CutScene")
         {
             ui.SetActive(false);

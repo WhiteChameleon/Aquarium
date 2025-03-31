@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 187761223}
   - component: {fileID: 187761226}
   - component: {fileID: 187761225}
-  - component: {fileID: 187761224}
+  - component: {fileID: 187761227}
   m_Layer: 0
   m_Name: StartDialogueNeighbour
   m_TagString: Untagged
@@ -579,27 +579,6 @@ Transform:
   m_Father: {fileID: 1113584645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &187761224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187761222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985a020f10853dd4381d0a1a2e552048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1108099317}
-  objE: {fileID: 1844907228}
-  dialogueStory: {fileID: 0}
-  storyNeigbor:
-  - Start
-  - Table
-  - Hole
-  - AfterFall
-  - Useless
 --- !u!61 &187761225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -678,6 +657,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &187761227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187761222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e41f62d847fa11419a5c9705f6ffbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objE: {fileID: 1844907228}
+  dialogWindow: {fileID: 1108099317}
 --- !u!1 &216020821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 364.77292, y: 534.22375}
+  m_AnchoredPosition: {x: 422, y: 596}
   m_SizeDelta: {x: 336.09, y: 143.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108099319
