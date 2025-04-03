@@ -25,7 +25,6 @@ public class Neighbour : MonoBehaviour
     {
         if (isTalk)
         {
-            Debug.Log(a);
             nameDialog.text = "Помпилус";
             textDialog.text = dialogs[a];
             if (Input.GetKeyDown(KeyCode.E) && a < 4)

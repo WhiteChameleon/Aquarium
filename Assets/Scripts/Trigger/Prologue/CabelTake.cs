@@ -6,7 +6,6 @@ public class CabelTake : MonoBehaviour
 {
     public GameObject objE;
     public GameObject self;
-    public GameObject cabelItem;
     void Start()
     {
         objE.SetActive(false);
@@ -16,7 +15,6 @@ public class CabelTake : MonoBehaviour
         objE.SetActive(true);
         if (Input.GetKey(KeyCode.E))
         {
-            Bag.bag.Add(cabelItem);
             Destroy(objE);
             Destroy(self);
         }

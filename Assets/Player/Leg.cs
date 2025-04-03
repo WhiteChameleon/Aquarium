@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Leg : MonoBehaviour
 {
-    private Vector2 moveInput;
-    public Animator animator;
-    private Rigidbody2D rb;
-    void Start()
+    [SerializeField] private Animator animator;
+    [SerializeField] private PlayerScriptTest script;
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        moveInput.x = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(moveInput.x) > 0)
+        if (script.recIsMove)
         {
             animator.SetBool("Move", true);
         }

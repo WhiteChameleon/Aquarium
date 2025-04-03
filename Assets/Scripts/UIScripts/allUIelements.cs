@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class allUIelements : MonoBehaviour
 {
-    public GameObject ui;
+    /*public GameObject ui;
     void Awake()
     {
         DontDestroyOnLoad(ui);
@@ -22,7 +22,7 @@ public class allUIelements : MonoBehaviour
         //ui.transform.SetParent(GameObject.Find("Canvas").transform, ui);
         //Debug.Log(current.name);
         //Debug.Log(next.name);
-        /*if (SceneManager.GetActiveScene().name == "CutScene")
+        if (SceneManager.GetActiveScene().name == "CutScene")
         {
             ui.SetActive(false);
             ui.transform.position = new Vector3(0, 500, 0);
@@ -31,6 +31,6 @@ public class allUIelements : MonoBehaviour
         {
             ui.SetActive(true);
             ui.transform.position = new Vector3(0, 0, 0);
-        }*/
-    }
+        }
+    }*/
 }
