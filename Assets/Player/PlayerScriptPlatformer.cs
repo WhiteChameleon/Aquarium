@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class PlayerScriptPlatformer : MonoBehaviour
 {
+    public bool recIsMovePlatformer;
+    public int slantPlatformer;
+
     private float speedPlayer = 2.5f; //движение
     private Vector2 moveInput;
-
     private bool facingRight;
-
-    private float jumpForce = 400f; // прыжок 
+    private float jumpForce = 200f; // прыжок 
     private bool isGround;
-    [SerializeField] private Transform groundCheker;
-    [SerializeField] private Vector2 checkRadius;
-    [SerializeField] private LayerMask itGround;
-
+    private float rayDistance = 0.6f;
     private Rigidbody2D rb;
 
     void Start()
@@ -22,22 +20,44 @@ public class PlayerScriptPlatformer : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGround = Physics2D.OverlapBox(groundCheker.position, checkRadius, 0f, itGround);
-
         moveInput.x = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput.x * speedPlayer, rb.velocity.y);
+        if (Input.GetKey(KeyCode.A))
+        {
+            recIsMovePlatformer = true;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            recIsMovePlatformer = true;
+        }
+        else
+        {
+            recIsMovePlatformer = false;
+        }
         if (moveInput.x > 0 && !facingRight)
         {
+            slantPlatformer = -1;
             Flip();
         }
         if (moveInput.x < 0 && facingRight)
         {
+            slantPlatformer = 1;
             Flip();
         }
     }
 
     void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, Vector2.down, rayDistance, LayerMask.GetMask("Ground"));
+        if (hit.collider != null)
+        {
+            isGround = true;
+
+        }
+        else
+        {
+            isGround = false;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
         {
             Jump();

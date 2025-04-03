@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScriptTest : MonoBehaviour
 {
+    public bool recIsMove;
+    public int slant;
     public float speedPlayer; // для движения
     private Vector2 moveInput;
 
@@ -15,6 +17,7 @@ public class PlayerScriptTest : MonoBehaviour
 
     private void Start()
     {
+        recIsMove = false;
         speedPlayer = 2.5f;
         yPos = transform.position.y;
         rb = GetComponent<Rigidbody2D>();
@@ -26,13 +29,22 @@ public class PlayerScriptTest : MonoBehaviour
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
         rb.MovePosition(rb.position + moveInput * speedPlayer * Time.deltaTime);
-
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
+        {
+            recIsMove = true;
+        }
+        else
+        {
+            recIsMove = false;
+        }
         if (moveInput.x > 0 && !facingRight)
         {
+            slant = -1;
             Flip();
         }
         if (moveInput.x < 0 && facingRight)
         {
+            slant = 1;
             Flip();
         }
     }
