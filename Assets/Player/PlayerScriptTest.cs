@@ -13,7 +13,9 @@ public class PlayerScriptTest : MonoBehaviour
 
     private bool facingRight; //для отражения
 
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
+
+    [SerializeField] AudioSource walkSound;
 
     private void Start()
     {
@@ -32,9 +34,12 @@ public class PlayerScriptTest : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
         {
             recIsMove = true;
+            if (walkSound.isPlaying) return;
+            walkSound.Play();
         }
         else
         {
+            walkSound.Stop();
             recIsMove = false;
         }
         if (moveInput.x > 0 && !facingRight)
@@ -47,6 +52,7 @@ public class PlayerScriptTest : MonoBehaviour
             slant = 1;
             Flip();
         }
+        
     }
 
     private void Scale()
